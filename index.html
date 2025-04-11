@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 選單 -->
+    <ul class="menu">
+      <li><a href="#home">首頁</a></li>
+      <li><a href="#about">自我介紹</a></li>
+      <li class="dropdown">
+        <a href="#portfolio">作品集</a>
+        <ul class="submenu">
+          <li><a href="#" onclick="loadIframe('https://hackmd.io/@Csf31Ol7RQqGrcJTecEoKg/BJM2WWW21x')">第一周</a></li>
+          <li><a href="#" onclick="loadIframe('https://et.tku.edu.tw/')">第二周</a></li>
+          <li><a href="#" onclick="loadIframe('https://example.com/week3')">第三周</a></li>
+          <li><a href="#" onclick="loadIframe('https://example.com/week4')">第四周</a></li>
+        </ul>
+      </li>
+      <li><a href="#quiz">測驗卷</a></li>
+      <li><a href="#tutorials">教學影片</a></li>
+    </ul>
+
+    <!-- iframe 用於嵌入網頁 -->
+    <iframe id="content-frame" src="" frameborder="0" style="width: 80%; height: 80%; position: absolute; top: 10%; left: 10%; background-color: rgba(0, 0, 0, 0.2);"></iframe>
+
+    <script src="sketch.js"></script>
+
+    <script>
+      // 動態載入 iframe 的內容
+      function loadIframe(url) {
+        const iframe = document.getElementById('content-frame');
+        if (iframe) {
+          iframe.src = url; // 設定 iframe 的 src 為傳入的網址
+        } else {
+          console.error('找不到 iframe 元素');
+        }
+      }
+    </script>
+  </body>
+</html>
